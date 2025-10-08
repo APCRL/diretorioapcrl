@@ -79,44 +79,42 @@
             APCRL® 2025 - Todos os direitos reservados.<br> 
             CNPJ: 63.096.511/0001-79
         </div>
-    </div>
+    </div> <!-- fecha o container principal -->
 
     <script>
-        // Video arrays
+        // Arrays de vídeos
         const desktopVideos = [
-            'https://drive.google.com/uc?export=download&id=NEW_DESKTOP_VIDEO1',
-            'https://drive.google.com/uc?export=download&id=NEW_DESKTOP_VIDEO2',
-            'https://drive.google.com/uc?export=download&id=NEW_DESKTOP_VIDEO3',
-            'https://drive.google.com/uc?export=download&id=NEW_DESKTOP_VIDEO4'
+            'https://drive.google.com/uc?export=download&id=1CvcjYdwjmtbY9R0BcYJvPgjlF-0zEhXj',
+            'https://drive.google.com/uc?export=download&id=1MHK4Eddh_zLXSqsEZ2mfmfxa8nAjCvn6',
+            'https://drive.google.com/uc?export=download&id=14j-lQ-CSLSm_rX1pjLAYZOBNdPmUkGcE',
+            'https://drive.google.com/uc?export=download&id=1-7YZA2gH_MlQ32HbJt2l2SLOhNmJiOF2'
         ];
 
         const mobileVideos = [
-            'https://drive.google.com/uc?export=download&id=NEW_MOBILE_VIDEO1',
-            'https://drive.google.com/uc?export=download&id=NEW_MOBILE_VIDEO2',
-            'https://drive.google.com/uc?export=download&id=NEW_MOBILE_VIDEO3',
-            'https://drive.google.com/uc?export=download&id=NEW_MOBILE_VIDEO4',
-            'https://drive.google.com/uc?export=download&id=NEW_MOBILE_VIDEO5'
+            'https://drive.google.com/uc?export=download&id=1fxWLLvWolaz_0BOCoPQfQTuz7Byy8_yg',
+            'https://drive.google.com/uc?export=download&id=1cV1WtWczDRhM9zkJTGG9w_RcG-gcQ5cQ',
+            'https://drive.google.com/uc?export=download&id=1hiAcxYyZfP3hx48On_kGEqrEUBm8909P',
+            'https://drive.google.com/uc?export=download&id=1DapOwd857yTs0Jw5VpF9uoXn-3so0VQP',
+            'https://drive.google.com/uc?export=download&id=1l_ivmowUZJHGJjcJ619F8nhSxUKujGXs'
         ];
 
-        // Detect if mobile
+        // Detecta se é mobile
         const isMobile = window.innerWidth <= 768;
         const videos = isMobile ? mobileVideos : desktopVideos;
 
-        // Select random video
+        // Seleciona vídeo aleatório
         const randomVideo = videos[Math.floor(Math.random() * videos.length)];
         const videoElement = document.getElementById('video-background');
-        
-        videoElement.src = randomVideo;
-        
-        // Ensure video plays
-        videoElement.play().catch(e => {
-            console.log('Autoplay prevented:', e);
-        });
 
-        // Handle video end
-        videoElement.addEventListener('ended', () => {
-            videoElement.currentTime = 0;
-            videoElement.play();
+        videoElement.src = randomVideo;
+        videoElement.autoplay = true;
+        videoElement.muted = true;
+        videoElement.loop = true;
+        videoElement.playsInline = true;
+
+        // Garante autoplay
+        videoElement.play().catch(e => {
+            console.log('Autoplay impedido:', e);
         });
     </script>
 </body>
